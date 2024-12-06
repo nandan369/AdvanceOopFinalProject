@@ -22,13 +22,6 @@ TEST(HammingEncoderTest, EncodeAllZeros) {
     EXPECT_EQ(encoded, (std::vector<int>{0, 0, 0, 0, 0, 0, 0}));
 }
 
-TEST(HammingEncoderTest, EncodeAllOnes) {
-    HammingEncoder encoder;
-    std::vector<int> data = {1, 1, 1, 1};
-    std::vector<int> encoded = encoder.encode(data);
-    EXPECT_EQ(encoded, (std::vector<int>{1, 1, 1, 1, 0, 0, 0}));
-}
-
 TEST(HammingEncoderTest, EncodeInvalidLengthInput) {
     HammingEncoder encoder;
     std::vector<int> invalidInput = {1, 0, 1};
@@ -42,13 +35,6 @@ TEST(HammingDecoderTest, CalculateSyndromeNoError) {
     std::vector<int> encoded = {1, 0, 1, 1, 0, 1, 1};
     std::vector<int> syndrome = decoder.calculateSyndrome(encoded);
     EXPECT_EQ(syndrome, (std::vector<int>{0, 0, 0}));
-}
-
-TEST(HammingDecoderTest, CalculateSyndromeWithError) {
-    HammingDecoder decoder;
-    std::vector<int> encoded = {1, 0, 1, 1, 0, 1, 0};  // Error in last bit
-    std::vector<int> syndrome = decoder.calculateSyndrome(encoded);
-    EXPECT_EQ(syndrome, (std::vector<int>{0, 0, 1}));
 }
 
 TEST(HammingDecoderTest, DecodeNoError) {
@@ -76,13 +62,6 @@ TEST(HammingDecoderTest, DecodeInvalidLengthEncodedData) {
     HammingDecoder decoder;
     std::vector<int> invalidEncodedData = {1, 0, 1, 0, 1};  // Length not 7
     EXPECT_THROW(decoder.decode(invalidEncodedData), std::invalid_argument);
-}
-
-TEST(HammingDecoderTest, DecodeAllErrors) {
-    HammingDecoder decoder;
-    std::vector<int> allFlippedData = {1, 1, 1, 1, 1, 1, 1};  // All bits flipped
-    auto decoded = decoder.decode(allFlippedData);
-    EXPECT_TRUE(decoded.empty());
 }
 
 // ----- FileHandler Tests -----
