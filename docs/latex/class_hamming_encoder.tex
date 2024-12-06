@@ -1,0 +1,123 @@
+\doxysection{Hamming\+Encoder Class Reference}
+\hypertarget{class_hamming_encoder}{}\label{class_hamming_encoder}\index{HammingEncoder@{HammingEncoder}}
+
+
+A class for encoding data using the Hamming code technique.  
+
+
+
+
+{\ttfamily \#include $<$Hamming\+Encoder.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hamming_encoder_a07d402bfbdce6b31a57ab45b4a5a580f}{Hamming\+Encoder}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_hamming_encoder}{Hamming\+Encoder} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_hamming_encoder_a88c84b5a7c3e9f47081510e1e55258b7}{encode}} (const std\+::vector$<$ int $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Encodes a vector of data bits using the Hamming code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hamming_encoder_a4b5f386080e50048dec078d7f440c804}{initialize\+Generator\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the generator matrix for the Hamming code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_hamming_encoder_a19d4bbeb3cf5deae4477d76ac3706203}{generator\+Matrix}}
+\begin{DoxyCompactList}\small\item\em The generator matrix used for encoding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for encoding data using the Hamming code technique. 
+
+The \doxylink{class_hamming_encoder}{Hamming\+Encoder} class provides methods to encode data using a predefined generator matrix for error detection and correction. The class initializes the generator matrix automatically upon creation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_hamming_encoder_a07d402bfbdce6b31a57ab45b4a5a580f}\index{HammingEncoder@{HammingEncoder}!HammingEncoder@{HammingEncoder}}
+\index{HammingEncoder@{HammingEncoder}!HammingEncoder@{HammingEncoder}}
+\doxysubsubsection{\texorpdfstring{HammingEncoder()}{HammingEncoder()}}
+{\footnotesize\ttfamily \label{class_hamming_encoder_a07d402bfbdce6b31a57ab45b4a5a580f} 
+Hamming\+Encoder\+::\+Hamming\+Encoder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_hamming_encoder}{Hamming\+Encoder} object. 
+
+Constructs a \doxylink{class_hamming_encoder}{Hamming\+Encoder} object and initializes the generator matrix.
+
+Initializes the generator matrix required for encoding operations.
+
+The constructor calls the {\ttfamily initialize\+Generator\+Matrix} method to set up the generator matrix required for Hamming code encoding. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_hamming_encoder_a88c84b5a7c3e9f47081510e1e55258b7}\index{HammingEncoder@{HammingEncoder}!encode@{encode}}
+\index{encode@{encode}!HammingEncoder@{HammingEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily \label{class_hamming_encoder_a88c84b5a7c3e9f47081510e1e55258b7} 
+std\+::vector$<$ int $>$ Hamming\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Encodes a vector of data bits using the Hamming code. 
+
+Encodes a 4-\/bit data vector using the (7, 4) Hamming Code.
+
+This function takes a vector of data bits and applies the Hamming code algorithm to generate encoded bits that include error detection and correction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A vector of integers representing the input data bits (0s and 1s). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of integers representing the encoded data bits.
+\end{DoxyReturn}
+This function takes a 4-\/bit input vector, performs matrix multiplication with the generator matrix (modulo 2), and produces a 7-\/bit encoded vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A vector of integers representing the 4-\/bit input data (0s and 1s). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of integers representing the 7-\/bit encoded data.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the input vector does not contain exactly 4 bits. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_hamming_encoder_a4b5f386080e50048dec078d7f440c804}\index{HammingEncoder@{HammingEncoder}!initializeGeneratorMatrix@{initializeGeneratorMatrix}}
+\index{initializeGeneratorMatrix@{initializeGeneratorMatrix}!HammingEncoder@{HammingEncoder}}
+\doxysubsubsection{\texorpdfstring{initializeGeneratorMatrix()}{initializeGeneratorMatrix()}}
+{\footnotesize\ttfamily \label{class_hamming_encoder_a4b5f386080e50048dec078d7f440c804} 
+void Hamming\+Encoder\+::initialize\+Generator\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the generator matrix for the Hamming code. 
+
+Initializes the generator matrix for the (7, 4) Hamming Code.
+
+This function is called during object construction to set up the generator matrix needed for encoding operations.
+
+The generator matrix is predefined for a (7, 4) Hamming Code, which maps 4 data bits to 7 encoded bits with error detection and correction capabilities. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_hamming_encoder_a19d4bbeb3cf5deae4477d76ac3706203}\index{HammingEncoder@{HammingEncoder}!generatorMatrix@{generatorMatrix}}
+\index{generatorMatrix@{generatorMatrix}!HammingEncoder@{HammingEncoder}}
+\doxysubsubsection{\texorpdfstring{generatorMatrix}{generatorMatrix}}
+{\footnotesize\ttfamily \label{class_hamming_encoder_a19d4bbeb3cf5deae4477d76ac3706203} 
+std\+::vector$<$std\+::vector$<$int$>$ $>$ Hamming\+Encoder\+::generator\+Matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The generator matrix used for encoding. 
+
+This matrix is initialized during the construction of the \doxylink{class_hamming_encoder}{Hamming\+Encoder} object. It is used to calculate the encoded bits. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_hamming_encoder_8h}{Hamming\+Encoder.\+h}}\item 
+\mbox{\hyperlink{_hamming_encoder_8cpp}{Hamming\+Encoder.\+cpp}}\end{DoxyCompactItemize}

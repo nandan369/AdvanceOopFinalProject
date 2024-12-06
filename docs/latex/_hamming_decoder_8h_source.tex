@@ -1,0 +1,28 @@
+\doxysection{Hamming\+Decoder.\+h}
+\hypertarget{_hamming_decoder_8h_source}{}\label{_hamming_decoder_8h_source}\index{include/HammingDecoder.h@{include/HammingDecoder.h}}
+\mbox{\hyperlink{_hamming_decoder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HAMMING\_DECODER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ HAMMING\_DECODER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_hamming_decoder}{HammingDecoder}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_hamming_decoder_adbda97ffad30fe96a5840b6c24dd3a76}{HammingDecoder}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_hamming_decoder_a8b2e362e9e2e80ddf4b7348fc881a0a9}{decode}}(\textcolor{keyword}{const}\ std::vector<int>\&\ encodedData);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_hamming_decoder_ad3fdbc26ade26861445d8baef9af01e5}{hasMultipleErrors}}(\textcolor{keyword}{const}\ std::vector<int>\&\ syndrome);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_hamming_decoder_aa974daf7afdc52105a7d5ea86edde9c3}{calculateSyndrome}}(\textcolor{keyword}{const}\ std::vector<int>\&\ encodedData);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ std::vector<std::vector<int>>\ \mbox{\hyperlink{class_hamming_decoder_ac49ae8a8f7a1c6d158c576929a43820c}{parityCheckMatrix}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_hamming_decoder_a19525ec43e9420cdeba33258f9fd0558}{initializeParityCheckMatrix}}();}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,106 @@
+\doxysection{File\+Handler Class Reference}
+\hypertarget{class_file_handler}{}\label{class_file_handler}\index{FileHandler@{FileHandler}}
+
+
+A utility class for handling file operations related to encoded and decoded data.  
+
+
+
+
+{\ttfamily \#include $<$File\+Handler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_file_handler_aab6b2033e364bfd1a48c75327247259a}{File\+Handler}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{class_file_handler}{File\+Handler} class. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_file_handler_acf75cc797a3973f68b798f8f6fb42c5e}{read\+Encoded\+File}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Reads encoded data from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_handler_a8c2dd6161ffa55c5d45df9740e9d23b9}{write\+Decoded\+File}} (const std\+::string \&filename, const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&decoded\+Data)
+\begin{DoxyCompactList}\small\item\em Writes decoded data to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A utility class for handling file operations related to encoded and decoded data. 
+
+The \doxylink{class_file_handler}{File\+Handler} class provides methods to read encoded data from a file and write decoded data back to a file. It supports operations with 2D vectors of integers representing the data. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_file_handler_aab6b2033e364bfd1a48c75327247259a}\index{FileHandler@{FileHandler}!FileHandler@{FileHandler}}
+\index{FileHandler@{FileHandler}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{FileHandler()}{FileHandler()}}
+{\footnotesize\ttfamily \label{class_file_handler_aab6b2033e364bfd1a48c75327247259a} 
+File\+Handler\+::\+File\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor for the \doxylink{class_file_handler}{File\+Handler} class. 
+
+Constructs a \doxylink{class_file_handler}{File\+Handler} object with no special initialization. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_file_handler_acf75cc797a3973f68b798f8f6fb42c5e}\index{FileHandler@{FileHandler}!readEncodedFile@{readEncodedFile}}
+\index{readEncodedFile@{readEncodedFile}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{readEncodedFile()}{readEncodedFile()}}
+{\footnotesize\ttfamily \label{class_file_handler_acf75cc797a3973f68b798f8f6fb42c5e} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ File\+Handler\+::read\+Encoded\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Reads encoded data from a file. 
+
+This function reads a file containing encoded data, parses it, and returns the data as a 2D vector of integers. Each row in the file corresponds to a vector of encoded bits.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to read the encoded data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D vector of integers representing the encoded data.
+\end{DoxyReturn}
+This method reads a file containing lines of 7-\/bit encoded words. Each line in the file must contain exactly 7 bits (0s and 1s). Lines that do not meet this criterion are skipped with an error message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to read the encoded data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 2D vector of integers where each sub-\/vector represents a 7-\/bit encoded word. 
+\end{DoxyReturn}
+\Hypertarget{class_file_handler_a8c2dd6161ffa55c5d45df9740e9d23b9}\index{FileHandler@{FileHandler}!writeDecodedFile@{writeDecodedFile}}
+\index{writeDecodedFile@{writeDecodedFile}!FileHandler@{FileHandler}}
+\doxysubsubsection{\texorpdfstring{writeDecodedFile()}{writeDecodedFile()}}
+{\footnotesize\ttfamily \label{class_file_handler_a8c2dd6161ffa55c5d45df9740e9d23b9} 
+void File\+Handler\+::write\+Decoded\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \&}]{decoded\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Writes decoded data to a file. 
+
+This function writes a 2D vector of decoded data to a file. Each row of the vector is written as a separate line in the file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to write the decoded data to. \\
+\hline
+{\em decoded\+Data} & A 2D vector of integers representing the decoded data.\\
+\hline
+\end{DoxyParams}
+This method writes a 2D vector of decoded data to the specified file. Each sub-\/vector is written as a line, with the bits concatenated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to write the decoded data to. \\
+\hline
+{\em decoded\+Data} & A 2D vector of integers where each sub-\/vector represents a decoded word. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_file_handler_8h}{File\+Handler.\+h}}\item 
+\mbox{\hyperlink{_file_handler_8cpp}{File\+Handler.\+cpp}}\item 
+\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

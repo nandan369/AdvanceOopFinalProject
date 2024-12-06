@@ -1,0 +1,131 @@
+Start testing: Dec 06 15:07 Central Standard Time
+----------------------------------------------------------
+1/1 Testing: Final_Project_testing
+1/1 Test: Final_Project_testing
+Command: "C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/build/Final_Project_testing.exe"
+Directory: C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/build
+"Final_Project_testing" start time: Dec 06 15:07 Central Standard Time
+Output:
+----------------------------------------------------------
+Running main() from C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/googletest/googletest/src/gtest_main.cc
+[==========] Running 18 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from HammingEncoderTest
+[ RUN      ] HammingEncoderTest.EncodeValidInput
+C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/testHamming.cpp:15: Failure
+Expected equality of these values:
+  encoded
+    Which is: { 1, 0, 1, 1, 0, 1, 0 }
+  (std::vector<int>{1, 0, 1, 1, 0, 1, 1})
+    Which is: { 1, 0, 1, 1, 0, 1, 1 }
+
+[  FAILED  ] HammingEncoderTest.EncodeValidInput (0 ms)
+[ RUN      ] HammingEncoderTest.EncodeAllZeros
+[       OK ] HammingEncoderTest.EncodeAllZeros (0 ms)
+[ RUN      ] HammingEncoderTest.EncodeAllOnes
+C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/testHamming.cpp:29: Failure
+Expected equality of these values:
+  encoded
+    Which is: { 1, 1, 1, 1, 1, 1, 1 }
+  (std::vector<int>{1, 1, 1, 1, 0, 0, 0})
+    Which is: { 1, 1, 1, 1, 0, 0, 0 }
+
+[  FAILED  ] HammingEncoderTest.EncodeAllOnes (0 ms)
+[ RUN      ] HammingEncoderTest.EncodeInvalidLengthInput
+[       OK ] HammingEncoderTest.EncodeInvalidLengthInput (0 ms)
+[----------] 4 tests from HammingEncoderTest (0 ms total)
+
+[----------] 7 tests from HammingDecoderTest
+[ RUN      ] HammingDecoderTest.CalculateSyndromeNoError
+C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/testHamming.cpp:44: Failure
+Expected equality of these values:
+  syndrome
+    Which is: { 1, 1, 1 }
+  (std::vector<int>{0, 0, 0})
+    Which is: { 0, 0, 0 }
+
+[  FAILED  ] HammingDecoderTest.CalculateSyndromeNoError (0 ms)
+[ RUN      ] HammingDecoderTest.CalculateSyndromeWithError
+C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/testHamming.cpp:51: Failure
+Expected equality of these values:
+  syndrome
+    Which is: { 0, 0, 0 }
+  (std::vector<int>{0, 0, 1})
+    Which is: { 0, 0, 1 }
+
+[  FAILED  ] HammingDecoderTest.CalculateSyndromeWithError (0 ms)
+[ RUN      ] HammingDecoderTest.DecodeNoError
+Encoded Data: 1011011
+Syndrome: 111
+Decoded Data: 1011 (corrected bit at position: 7)
+[       OK ] HammingDecoderTest.DecodeNoError (0 ms)
+[ RUN      ] HammingDecoderTest.DecodeWithSingleBitError
+Encoded Data: 1011010
+Syndrome: 000
+Decoded Data: 1011 (no correction needed)
+[       OK ] HammingDecoderTest.DecodeWithSingleBitError (0 ms)
+[ RUN      ] HammingDecoderTest.DecodeInvalidErrorPosition
+Encoded Data: 1011111
+Syndrome: 010
+Decoded Data: 1111 (corrected bit at position: 2)
+C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/testHamming.cpp:72: Failure
+Value of: decoded.empty()
+  Actual: false
+Expected: true
+
+[  FAILED  ] HammingDecoderTest.DecodeInvalidErrorPosition (0 ms)
+[ RUN      ] HammingDecoderTest.DecodeInvalidLengthEncodedData
+[       OK ] HammingDecoderTest.DecodeInvalidLengthEncodedData (0 ms)
+[ RUN      ] HammingDecoderTest.DecodeAllErrors
+Encoded Data: 1111111
+Syndrome: 000
+Decoded Data: 1111 (no correction needed)
+C:/Dropbox/MS_CS/Fall_sem_1/OOP/AdvanceOopFinalProject/testHamming.cpp:85: Failure
+Value of: decoded.empty()
+  Actual: false
+Expected: true
+
+[  FAILED  ] HammingDecoderTest.DecodeAllErrors (0 ms)
+[----------] 7 tests from HammingDecoderTest (0 ms total)
+
+[----------] 7 tests from FileHandlerTest
+[ RUN      ] FileHandlerTest.ReadValidEncodedFile
+[       OK ] FileHandlerTest.ReadValidEncodedFile (7 ms)
+[ RUN      ] FileHandlerTest.ReadFileWithInvalidLines
+Error: Invalid line in file: INVALID
+[       OK ] FileHandlerTest.ReadFileWithInvalidLines (9 ms)
+[ RUN      ] FileHandlerTest.ReadNonExistentFile
+Error: Unable to open file nonexistent.txt for reading.
+[       OK ] FileHandlerTest.ReadNonExistentFile (0 ms)
+[ RUN      ] FileHandlerTest.WriteDecodedFile
+[       OK ] FileHandlerTest.WriteDecodedFile (8 ms)
+[ RUN      ] FileHandlerTest.WriteToInvalidPath
+Error opening file for writing.
+[       OK ] FileHandlerTest.WriteToInvalidPath (0 ms)
+[ RUN      ] FileHandlerTest.ReadEmptyFile
+[       OK ] FileHandlerTest.ReadEmptyFile (0 ms)
+[ RUN      ] FileHandlerTest.WriteEmptyData
+[       OK ] FileHandlerTest.WriteEmptyData (0 ms)
+[----------] 7 tests from FileHandlerTest (27 ms total)
+
+[----------] Global test environment tear-down
+[==========] 18 tests from 3 test suites ran. (28 ms total)
+[  PASSED  ] 12 tests.
+[  FAILED  ] 6 tests, listed below:
+[  FAILED  ] HammingEncoderTest.EncodeValidInput
+[  FAILED  ] HammingEncoderTest.EncodeAllOnes
+[  FAILED  ] HammingDecoderTest.CalculateSyndromeNoError
+[  FAILED  ] HammingDecoderTest.CalculateSyndromeWithError
+[  FAILED  ] HammingDecoderTest.DecodeInvalidErrorPosition
+[  FAILED  ] HammingDecoderTest.DecodeAllErrors
+
+ 6 FAILED TESTS
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Failed.
+"Final_Project_testing" end time: Dec 06 15:07 Central Standard Time
+"Final_Project_testing" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 06 15:07 Central Standard Time

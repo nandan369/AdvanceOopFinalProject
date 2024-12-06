@@ -1,0 +1,179 @@
+\doxysection{Hamming\+Decoder Class Reference}
+\hypertarget{class_hamming_decoder}{}\label{class_hamming_decoder}\index{HammingDecoder@{HammingDecoder}}
+
+
+A class for decoding data encoded with Hamming codes.  
+
+
+
+
+{\ttfamily \#include $<$Hamming\+Decoder.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hamming_decoder_adbda97ffad30fe96a5840b6c24dd3a76}{Hamming\+Decoder}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_hamming_decoder}{Hamming\+Decoder} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_hamming_decoder_a8b2e362e9e2e80ddf4b7348fc881a0a9}{decode}} (const std\+::vector$<$ int $>$ \&encoded\+Data)
+\begin{DoxyCompactList}\small\item\em Decodes a vector of encoded data bits. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hamming_decoder_ad3fdbc26ade26861445d8baef9af01e5}{has\+Multiple\+Errors}} (const std\+::vector$<$ int $>$ \&syndrome)
+\begin{DoxyCompactList}\small\item\em Checks if the calculated syndrome indicates multiple errors. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_hamming_decoder_aa974daf7afdc52105a7d5ea86edde9c3}{calculate\+Syndrome}} (const std\+::vector$<$ int $>$ \&encoded\+Data)
+\begin{DoxyCompactList}\small\item\em Calculates the syndrome for the given encoded data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hamming_decoder_a19525ec43e9420cdeba33258f9fd0558}{initialize\+Parity\+Check\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the parity-\/check matrix for Hamming code decoding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_hamming_decoder_ac49ae8a8f7a1c6d158c576929a43820c}{parity\+Check\+Matrix}}
+\begin{DoxyCompactList}\small\item\em The parity-\/check matrix used for error detection and correction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for decoding data encoded with Hamming codes. 
+
+The \doxylink{class_hamming_decoder}{Hamming\+Decoder} class provides methods to decode data, check for errors, and calculate syndromes to identify and correct single-\/bit errors. It utilizes a parity-\/check matrix for these operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_hamming_decoder_adbda97ffad30fe96a5840b6c24dd3a76}\index{HammingDecoder@{HammingDecoder}!HammingDecoder@{HammingDecoder}}
+\index{HammingDecoder@{HammingDecoder}!HammingDecoder@{HammingDecoder}}
+\doxysubsubsection{\texorpdfstring{HammingDecoder()}{HammingDecoder()}}
+{\footnotesize\ttfamily \label{class_hamming_decoder_adbda97ffad30fe96a5840b6c24dd3a76} 
+Hamming\+Decoder\+::\+Hamming\+Decoder (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_hamming_decoder}{Hamming\+Decoder} object. 
+
+Constructs a \doxylink{class_hamming_decoder}{Hamming\+Decoder} object and initializes the parity-\/check matrix.
+
+Initializes the parity-\/check matrix required for decoding operations.
+
+The constructor calls the {\ttfamily initialize\+Parity\+Check\+Matrix} method to set up the matrix required for error detection and correction. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_hamming_decoder_aa974daf7afdc52105a7d5ea86edde9c3}\index{HammingDecoder@{HammingDecoder}!calculateSyndrome@{calculateSyndrome}}
+\index{calculateSyndrome@{calculateSyndrome}!HammingDecoder@{HammingDecoder}}
+\doxysubsubsection{\texorpdfstring{calculateSyndrome()}{calculateSyndrome()}}
+{\footnotesize\ttfamily \label{class_hamming_decoder_aa974daf7afdc52105a7d5ea86edde9c3} 
+std\+::vector$<$ int $>$ Hamming\+Decoder\+::calculate\+Syndrome (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{encoded\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the syndrome for the given encoded data. 
+
+Calculates the syndrome for a given encoded data vector.
+
+The syndrome is calculated using the parity-\/check matrix and provides information about error positions in the encoded data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoded\+Data} & A vector of integers representing the encoded data bits (0s and 1s). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of integers representing the calculated syndrome.
+\end{DoxyReturn}
+This function computes the syndrome by performing a modulo-\/2 dot product of the parity-\/check matrix (H\texorpdfstring{$^\wedge$}{\string^}T) and the encoded data vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoded\+Data} & A vector of integers representing the 7-\/bit encoded data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 3-\/bit vector representing the syndrome. 
+\end{DoxyReturn}
+\Hypertarget{class_hamming_decoder_a8b2e362e9e2e80ddf4b7348fc881a0a9}\index{HammingDecoder@{HammingDecoder}!decode@{decode}}
+\index{decode@{decode}!HammingDecoder@{HammingDecoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily \label{class_hamming_decoder_a8b2e362e9e2e80ddf4b7348fc881a0a9} 
+std\+::vector$<$ int $>$ Hamming\+Decoder\+::decode (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{encoded\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Decodes a vector of encoded data bits. 
+
+Decodes a 7-\/bit encoded data vector and corrects single-\/bit errors if present.
+
+This function decodes the input encoded data, corrects any single-\/bit errors, and returns the original data bits.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoded\+Data} & A vector of integers representing the encoded data bits (0s and 1s). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of integers representing the decoded data bits.
+\end{DoxyReturn}
+This function uses the parity-\/check matrix to calculate the syndrome and determine if any errors are present in the encoded data. Single-\/bit errors are corrected automatically, and the corrected data is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoded\+Data} & A vector of integers representing the 7-\/bit encoded data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 4-\/bit vector representing the decoded data, or an empty vector if multiple errors are detected.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the input vector does not contain exactly 7 bits. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_hamming_decoder_ad3fdbc26ade26861445d8baef9af01e5}\index{HammingDecoder@{HammingDecoder}!hasMultipleErrors@{hasMultipleErrors}}
+\index{hasMultipleErrors@{hasMultipleErrors}!HammingDecoder@{HammingDecoder}}
+\doxysubsubsection{\texorpdfstring{hasMultipleErrors()}{hasMultipleErrors()}}
+{\footnotesize\ttfamily \label{class_hamming_decoder_ad3fdbc26ade26861445d8baef9af01e5} 
+bool Hamming\+Decoder\+::has\+Multiple\+Errors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{syndrome}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the calculated syndrome indicates multiple errors. 
+
+This function analyzes the syndrome to determine if multiple errors exist in the encoded data, which cannot be corrected by the Hamming code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em syndrome} & A vector of integers representing the calculated syndrome. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if multiple errors are detected; {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_hamming_decoder_a19525ec43e9420cdeba33258f9fd0558}\index{HammingDecoder@{HammingDecoder}!initializeParityCheckMatrix@{initializeParityCheckMatrix}}
+\index{initializeParityCheckMatrix@{initializeParityCheckMatrix}!HammingDecoder@{HammingDecoder}}
+\doxysubsubsection{\texorpdfstring{initializeParityCheckMatrix()}{initializeParityCheckMatrix()}}
+{\footnotesize\ttfamily \label{class_hamming_decoder_a19525ec43e9420cdeba33258f9fd0558} 
+void Hamming\+Decoder\+::initialize\+Parity\+Check\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initializes the parity-\/check matrix for Hamming code decoding. 
+
+Initializes the parity-\/check matrix for the (7, 4) Hamming Code.
+
+This function sets up the matrix used to calculate syndromes and identify errors.
+
+The parity-\/check matrix is predefined for a (7, 4) Hamming Code and is used to calculate the syndrome for error detection. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_hamming_decoder_ac49ae8a8f7a1c6d158c576929a43820c}\index{HammingDecoder@{HammingDecoder}!parityCheckMatrix@{parityCheckMatrix}}
+\index{parityCheckMatrix@{parityCheckMatrix}!HammingDecoder@{HammingDecoder}}
+\doxysubsubsection{\texorpdfstring{parityCheckMatrix}{parityCheckMatrix}}
+{\footnotesize\ttfamily \label{class_hamming_decoder_ac49ae8a8f7a1c6d158c576929a43820c} 
+std\+::vector$<$std\+::vector$<$int$>$ $>$ Hamming\+Decoder\+::parity\+Check\+Matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The parity-\/check matrix used for error detection and correction. 
+
+This matrix is initialized during the construction of the \doxylink{class_hamming_decoder}{Hamming\+Decoder} object. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_hamming_decoder_8h}{Hamming\+Decoder.\+h}}\item 
+\mbox{\hyperlink{_hamming_decoder_8cpp}{Hamming\+Decoder.\+cpp}}\end{DoxyCompactItemize}
